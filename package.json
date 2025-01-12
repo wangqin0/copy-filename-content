@@ -3,8 +3,7 @@
     "displayName": "Copy Filename & Content",
     "description": "Adds a context menu item to copy file name and content in a custom format",
     "version": "0.1.0",
-    "publisher": "Wang Qin",
-    "repository": "",
+    "repository": "https://github.com/wangqin0/copy-filename-content",
     "engines": {
       "vscode": "^1.64.0"
     },
@@ -28,12 +27,6 @@
             "command": "copy-filename-content.copy",
             "group": "navigation"
           }
-        ],
-        "editor/title": [
-            {
-              "command": "copy-filename-content.copy",
-              "group": "navigation"
-            }
         ]
       }
     },
