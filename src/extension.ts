@@ -15,11 +15,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       // Format text to copy
       const textToCopy = [
-        '```',
         fileName,
-        '---',
+        '```',
         fileContent,
-        '---',
         '```'
       ].join('\n');
 
