@@ -1,43 +1,46 @@
 {
-    "name": "copy-filename-content",
-    "displayName": "Copy Filename & Content",
-    "description": "Adds a context menu item to copy file name and content in a custom format",
-    "version": "0.1.2",
-    "repository": "https://github.com/wangqin0/copy-filename-content",
-    "engines": {
-      "vscode": "^1.73.0"
-    },
-    "categories": [
-      "Other"
+  "name": "copy-filename-content",
+  "displayName": "Copy Filename & Content",
+  "description": "Adds a context menu item to copy file name and content in a custom format",
+  "version": "0.1.3",
+  "repository": "https://github.com/wangqin0/copy-filename-content",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:copy-filename-content.copy"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-filename-content.copy",
+        "title": "Copy Filename & Content"
+      }
     ],
-    "activationEvents": [
-      "onCommand:copy-filename-content.copy"
-    ],
-    "main": "./out/extension.js",
-    "contributes": {
-      "commands": [
+    "menus": {
+      "explorer/context": [
         {
           "command": "copy-filename-content.copy",
-          "title": "Copy Filename & Content"
+          "group": "navigation"
         }
-      ],
-      "menus": {
-        "explorer/context": [
-          {
-            "command": "copy-filename-content.copy",
-            "group": "navigation"
-          }
-        ]
-      }
-    },
-    "scripts": {
-      "compile": "tsc -p ./"
-    },
-    "devDependencies": {
-      "@types/vscode": "^1.64.0",
-      "@types/node": "^14.x",
-      "typescript": "^4.6.2",
-      "vscode-test": "^1.6.0"
+      ]
     }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "all": "yarn install && yarn compile && npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^14.x",
+    "@types/vscode": "^1.64.0",
+    "typescript": "^4.6.2",
+    "vscode-test": "^1.6.0"
+  },
+  "dependencies": {
+    "@vscode/vsce": "3.2.2"
+  }
 }
-  

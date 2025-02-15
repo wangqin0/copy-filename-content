@@ -18,7 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
         fileName,
         '```',
         fileContent,
-        '```'
+        '```',
+        '\n'
       ].join('\n');
 
       // Copy to clipboard
