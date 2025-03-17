@@ -2,7 +2,7 @@
   "name": "copy-filename-content",
   "displayName": "Copy Filename & Content",
   "description": "Adds a context menu item to copy file name and content in a custom format",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/wangqin0/copy-filename-content",
   "engines": {
     "vscode": "^1.73.0"
@@ -40,7 +40,8 @@
     "typescript": "^4.6.2",
     "vscode-test": "^1.6.0"
   },
-  "dependencies": {
-    "@vscode/vsce": "3.2.2"
+"dependencies": {
+    "@vscode/vsce": "3.2.2",
+    "util": "^0.12.4"
   }
 }
