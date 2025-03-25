@@ -25,7 +25,7 @@ jobs:
 
             - name: Login to Azure
               run: |
-                echo "${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}" | vsce login --pat ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
+                echo "${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}" | vsce login WangQin ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
               env:
                 AZURE_MARKETPLACE_ACCESS_TOKEN: ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
               
