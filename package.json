@@ -2,7 +2,7 @@
   "name": "copy-filename-content",
   "displayName": "Copy Filename & Content",
   "description": "Adds a context menu item to copy file name and content in a custom format",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": "https://github.com/wangqin0/copy-filename-content",
   "publisher": "WangQin",
   "engines": {
