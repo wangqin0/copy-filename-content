@@ -1,32 +1,20 @@
-name: Build and Publish
-
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "*"
 
+name: Deploy Extension
 jobs:
-    build-publish:
-        runs-on: ubuntu-latest
-
-        steps:
-
-          - uses: actions/checkout@v2
-
-          - name: Set up Node.js
-            uses: actions/setup-node@v2
-            with:
-              node-version: '18'
-    
-          - name: Install the dependencies
-            run: npm i
-    
-          - name: Install vsce
-            run: npm i -g vsce
-    
-          - name: Publish
-            run: |
-              export VSCE_STORE=file
-              vsce login WangQin ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
-            env:
-              AZURE_MARKETPLACE_ACCESS_TOKEN: ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v2
+        with:
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
