@@ -24,4 +24,4 @@ jobs:
             run: npm i -g vsce
     
           - name: Publish
-            run: vsce publish -p ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
+            run: vsce login WangQin ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
