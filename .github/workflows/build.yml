@@ -25,6 +25,7 @@ jobs:
                 yarn global add @vscode/vsce
                 sudo apt install libsecret-1-0 libsecret-1-dev libglib2.0-dev -y
 
+
             - name: Login to Azure
               run: |
                 npx @vscode/vsce login WangQin ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
