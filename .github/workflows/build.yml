@@ -1,0 +1,33 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    build-publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
+              
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 'lts'
+                
+            - name: Install vsce
+              run: yarn global add @vscode/vsce
+
+            - name: Login to Azure
+              run: |
+                echo "${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}" | vsce login --pat ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
+              env:
+                AZURE_MARKETPLACE_ACCESS_TOKEN: ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
+              
+            - name: Build, Package, and Publish Extension
+              run: yarn all
+
