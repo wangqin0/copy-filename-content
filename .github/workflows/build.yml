@@ -11,14 +11,15 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
-            - name: Install Dependencies
-              run: yarn install --frozen-lockfile
-              
+
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                node-version: 'lts'
-                
+                node-version: '22'
+            
+            - name: Install Yarn
+              run: npm install -g yarn
+
             - name: Install vsce
               run: yarn global add @vscode/vsce
 
@@ -30,4 +31,3 @@ jobs:
               
             - name: Build, Package, and Publish Extension
               run: yarn all
-
