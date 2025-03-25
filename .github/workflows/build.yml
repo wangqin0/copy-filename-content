@@ -21,7 +21,9 @@ jobs:
               run: npm install -g yarn
 
             - name: Install vsce
-              run: yarn global add @vscode/vsce
+              run: |
+                yarn global add @vscode/vsce
+                sudo apt install libsecret -y
 
             - name: Login to Azure
               run: |
