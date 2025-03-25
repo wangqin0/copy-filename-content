@@ -10,26 +10,18 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v3
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: '22'
-            
-            - name: Install Yarn
-              run: npm install -g yarn
-
-            - name: Install vsce
-              run: |
-                yarn global add @vscode/vsce
-
-            - name: Login to Azure
-              run: |
-                export VSCE_STORE=file
-                npx @vscode/vsce login WangQin ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
-              env:
-                AZURE_MARKETPLACE_ACCESS_TOKEN: ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
-              
-            - name: Build, Package, and Publish Extension
-              run: yarn all
+          - uses: actions/checkout@v2
+          - uses: actions/setup-node@v1
+            with:
+              node-version: 14
+              registry-url: https://registry.npmjs.org/
+    
+          - name: Install the dependencies
+            run: npm i
+    
+          - name: Install vsce
+            run: npm i -g vsce
+    
+          - name: Publish
+            run: vsce publish -p ${{ secrets.AZURE_MARKETPLACE_ACCESS_TOKEN }}
