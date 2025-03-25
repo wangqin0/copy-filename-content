@@ -1,9 +1,10 @@
+name: Build and Publish
+
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
 
-name: Deploy Extension
 jobs:
   deploy:
     runs-on: ubuntu-latest
