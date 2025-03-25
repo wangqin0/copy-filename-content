@@ -33,7 +33,7 @@
   },
   "scripts": {
     "compile": "tsc -p ./",
-    "all": "yarn install && yarn compile && npx @vscode/vsce publish"
+    "all": "yarn install && yarn compile && npx @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^14.x",
